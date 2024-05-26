@@ -1,0 +1,9 @@
+body {
+    background-image: url('assets/images/Imagenfondo.webp');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    height: 100vh; /* Full height */
+    margin: 0; /* Reset default margin */
+}

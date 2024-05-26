@@ -1,0 +1,65 @@
+.container {
+    max-width: 600px;
+    margin: 20px auto 225px;
+    padding: 20px;
+    color: #333;
+}
+
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.shadow-sm {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.mb-3, .mb-4 {
+    margin-bottom: 1rem !important;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    margin-left: 15px;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    color: #fff;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Estilos para el rating con estrellas */
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+.star-rating .fa-star {
+    font-size: 2rem;
+    color: #d3d3d3; /* Color de las estrellas no seleccionadas */
+    cursor: pointer;
+}
+
+.star-rating .fa-star.selected {
+    color: #ffc107; /* Color de las estrellas seleccionadas */
+}

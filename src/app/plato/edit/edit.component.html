@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Update Plato</h1>
+
+    <a href="#" routerLink="/plato/index" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="nombre">nombre:</label>
+            <input formControlName="nombre" id="nombre" type="text" [(ngModel)]="plato.nombre" class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">nombre is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <textarea formControlName="descripcion" id="descripcion" type="text" [(ngModel)]="plato.descripcion"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['descripcion'].touched && f['descripcion'].invalid" class="alert alert-danger">
+                <div *ngIf="f['descripcion'].errors && f['descripcion'].errors['required']">Descripcion is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="categoria">categoria</label>
+            <textarea formControlName="categoria" id="categoria" type="text" [(ngModel)]="plato.categoria"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['categoria'].touched && f['categoria'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoria'].errors && f['categoria'].errors['required']">categoria is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="precio">precio</label>
+            <textarea formControlName="precio" id="precio" type="text" [(ngModel)]="plato.precio"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['precio'].touched && f['precio'].invalid" class="alert alert-danger">
+                <div *ngIf="f['precio'].errors && f['precio'].errors['required']">precio is required.
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

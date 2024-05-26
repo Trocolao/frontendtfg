@@ -1,0 +1,38 @@
+
+.custom-card {
+    background-color: whitesmoke; 
+    border: 1px solid #333; 
+    color: #333; 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-btn {
+    background-color: #333; 
+    color: #FFD700; 
+    border: 1px solid #FFD700; 
+}
+
+.custom-btn:hover {
+    background-color: #FFD700; 
+    color: #333; 
+    border: 1px solid #333; 
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card .btn {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.card .btn-block + .btn-block {
+    margin-top: 10px;
+}
+h1{
+    font-style: italic;
+    font-weight: bold;
+  }

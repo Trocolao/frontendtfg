@@ -1,0 +1,23 @@
+
+ <div class="container">
+  <h1 class="mb-4 text-center text-white">Eventos</h1>
+
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let evento of eventos">
+          <div class="card h-100 producto-card">
+              <img class="img-fluid" [src]="'http://localhost:8000/' + evento?.files[0].file_path" class="card-img-top" alt="{{ evento.nombre }}">
+              <div class="card-body">
+                <a [routerLink]="['/evento/', evento.id, 'view']" class="link-h5"><h5 class="card-title ">{{ evento.nombre }}</h5></a>
+                  <p class="card-text text-black">{{ evento.descripcion }}</p>
+                  <p class="card-text fw-bold text-black">{{ evento.fecha }}</p>
+                  <p class="card-text fw-bold text-black">Participantes: {{ evento.participantes }}</p>
+                  <p class="card-text fw-bold text-black">Aforo: {{ evento.limite_participantes }} personas</p>
+
+              </div>
+              <div class="card-footer text-center">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+body {
+    color: black; /* Establecer color de texto predeterminado para todo el cuerpo */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black; /* Asegurar que el texto en el contenedor sea negro */
+    margin: 100px auto 200px;
+}
+
+h2, h3, h4, th, td, label, .text-danger {
+    color: black; /* Asegurar que los encabezados, celdas de tabla, etiquetas y textos de error sean negros */
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+.table {
+    margin-bottom: 20px;
+}
+
+thead.thead-black {
+    background-color: #007bff;
+    color: black;
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin: 5px;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+button.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+button.btn-danger:hover {
+    background-color: #bd2130;
+    border-color: #a71d2a;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    color: black; /* Asegurar que el texto dentro de los campos de formulario sea negro */
+}
+
+.text-danger {
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

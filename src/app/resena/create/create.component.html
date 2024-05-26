@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="mb-4 text-center text-white">Crear Reseña</h1>
+
+      
+  <form [formGroup]="resenaForm" (ngSubmit)="create()">
+      <div class="form-group">
+        <label for="titulo">Titulo:</label>
+        <input formControlName="titulo" id="titulo" type="text" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea formControlName="descripcion" id="descripcion" class="form-control"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="valoracion">Valoración:</label>
+        <div id="star-rating" class="star-rating">
+          <i class="fa fa-star" *ngFor="let star of stars; let i = index" 
+             (click)="rate(i + 1)" 
+             [ngClass]="{'selected': (i + 1) <= resenaForm.controls['valoracion'].value}"></i>
+        </div>
+        <input formControlName="valoracion" id="valoracion" type="number" class="form-control d-none">
+      </div>
+      <a href="#" routerLink="/resena/index" class="btn btn-primary mb-4"  style="margin-top: 12px;">Back</a>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+  <br><br>
+</div>

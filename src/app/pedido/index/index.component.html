@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 class="my-4 text-center">Mis Pedidos</h1>   
+    <div class="row">
+        <div class="col-md-4" *ngFor="let pedido of pedidos">
+            <div class="card mb-4 shadow-sm custom-card">
+                <div class="card-body">
+                    <h5 class="card-title">Pedido</h5>
+                    <p class="card-text"><strong>Fecha:</strong> {{ pedido.fecha }}</p>
+                    <p class="card-text"><strong>Total:</strong> {{ pedido.total }}</p>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" [routerLink]="['/pedido/', pedido.id, 'view']" class="btn btn-primary btn-sm btn-sm custom-btn ml-2">View</button>
+                        <button type="button" (click)="deletePedido(pedido.id)" class="btn btn-danger btn-block btn-sm custom-btn ml-2">Cancela el Pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

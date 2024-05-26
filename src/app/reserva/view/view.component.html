@@ -1,0 +1,39 @@
+<div class="container" *ngIf="loggedUser.id==reserva.user.id">
+    <h1>Ver Reserva</h1>
+
+    <a href="#" routerLink="/reserva/myindex" class="btn btn-primary">Back</a>
+
+    <div class="event-content">
+
+      <div class="event-info">
+        <div>
+            <strong>Usuario:</strong>
+            <p>{{ reserva.user.name }}</p>
+        </div>
+
+        <div>
+            <strong>Numero de Comensales:</strong>
+            <p>{{ reserva.numero_comensales }}</p>
+        </div>
+
+        <div>
+            <strong>Fecha :</strong>
+            <p>{{ reserva.dia }}</p>
+        </div>
+        <div>
+            <strong>Turno:</strong>
+            <p>{{ reserva.turno }}</p>
+        </div>
+        <div>
+            <strong>Hora:</strong>
+            <p>{{ reserva.hora }}</p>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div *ngIf="loggedUser.id!==reserva.user.id" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div>

@@ -1,0 +1,98 @@
+<div class="container" *ngIf="loggedUser.id==1">
+    <h1 class="mb-4">Actualizar Reserva</h1>
+  
+        
+    <form [formGroup]="form" (ngSubmit)="submit()" class="bg-light p-4 rounded shadow-sm">
+      <div class="form-group">
+        <label for="numero_comensales" class="fw-bold">Numero de comensales:</label>
+        <input 
+          formControlName="numero_comensales"
+          id="numero_comensales" 
+          type="number" 
+          class="form-control">
+        <div *ngIf="f['numero_comensales'].touched && f['numero_comensales'].invalid" class="text-danger">
+          <div *ngIf="f['numero_comensales'].errors?.['required']">Numero de comensales es requerido.</div>
+          <div *ngIf="f['numero_comensales'].errors?.['min']">Debe haber al menos 1 comensal.</div>
+          <div *ngIf="f['numero_comensales'].errors?.['max']">El número máximo de comensales es 10.</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dia" class="fw-bold">Día:</label>
+        <input 
+          formControlName="dia"
+          id="dia" 
+          type="date" 
+          class="form-control">
+        <div *ngIf="f['dia'].touched && f['dia'].invalid" class="text-danger">
+          <div *ngIf="f['dia'].errors?.['required']">Día es requerido.</div>
+          <div *ngIf="f['dia'].errors?.['minDate']">Tienes que reservar como mínimo un día después de hoy.</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="turno" class="fw-bold">Turno:</label>
+        <select 
+          formControlName="turno"
+          id="turno" 
+          class="form-control">
+          <option value="comida">Comida</option>
+          <option value="cena">Cena</option>
+        </select>
+        <div *ngIf="f['turno'].touched && f['turno'].invalid" class="text-danger">
+          <div *ngIf="f['turno'].errors?.['required']">Turno es requerido.</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="hora" class="fw-bold">Hora:</label>
+        <select 
+          formControlName="hora"
+          id="hora" 
+          class="form-control">
+          <!-- Horas de tarde -->
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <!-- Horas de noche -->
+          <option value="20:00">20:00</option>
+          <option value="20:30">20:30</option>
+          <option value="21:00">21:00</option>
+          <option value="21:30">21:30</option>
+          <option value="22:00">22:00</option>
+          <option value="22:30">22:30</option>
+          <option value="23:00">23:00</option>
+        </select>
+        <div *ngIf="f['hora'].touched && f['hora'].invalid" class="text-danger">
+          <div *ngIf="f['hora'].errors?.['required']">Hora es requerida.</div>
+        </div>
+      </div>
+      <a href="#" routerLink="/admin/reserva/index" class="btn btn-primary mb-4">Back</a>
+
+      <button class="btn btn-primary mt-3" type="submit"
+        [disabled]="form.invalid || 
+                    reservaExiste || 
+                    (form.value.turno === 'comida' && ['20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'].includes(form.value.hora)) || 
+                    (form.value.turno === 'cena' && ['13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00'].includes(form.value.hora))">
+        Submit
+      </button>
+  
+      <div *ngIf="reservaExiste" class="alert alert-danger mt-3">
+        Ya tienes una reserva para este día y turno.
+      </div>
+  
+      <div *ngIf="(form.value.turno === 'comida' && ['20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'].includes(form.value.hora)) || 
+                   (form.value.turno === 'cena' && ['13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00'].includes(form.value.hora))"
+         class="alert alert-danger mt-3">
+        La hora seleccionada no corresponde al turno elegido.
+      </div>
+    </form>
+    <br><br>
+  </div>
+  <div *ngIf="loggedUser.id!==1||!isSignedIn" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div>

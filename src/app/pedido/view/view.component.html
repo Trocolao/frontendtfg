@@ -1,0 +1,34 @@
+<div class="container" *ngIf="loggedUser.id==pedido.user_id">
+  <h1>Pedido</h1>
+
+    <a href="#" routerLink="/pedido/myindex" class="btn btn-primary">Back</a>
+
+    <div class="event-content">
+
+      <div class="event-info">
+        <div>
+            <strong>Total del Pedido:</strong>
+            <p>{{ pedido.total }}</p>
+        </div>
+
+        <div>
+            <strong>Fecha:</strong>
+            <p>{{ pedido.fecha }}</p>
+        </div>
+        <br>
+        <div *ngFor="let item of pedido.platos">
+            <strong>Producto: {{ item.nombre }}</strong>
+            <p>Precio: {{ item.precio }}$</p>            
+            <p>Cantidad: {{ item.pivot.cantidad }}</p>
+            <p>Total Producto: {{ (item.pivot.cantidad)*(item.precio) }}$</p>
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div *ngIf="loggedUser.id!==pedido.user_id" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div> 
+

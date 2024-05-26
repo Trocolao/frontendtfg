@@ -1,0 +1,76 @@
+<div class="container" style="margin-bottom: 35px;" *ngIf="loggedUser.id==1">
+    <h1 class="mb-4 text-center">Crear Nuevo Evento</h1>
+  
+        
+    <form [formGroup]="form" (ngSubmit)="submit(form)" class="bg-light p-4 rounded shadow-sm">
+  
+        <div class="form-group mb-3">
+            <label for="nombre" class="fw-bold">Nombre:</label>
+            <input 
+                formControlName="nombre"
+                id="nombre" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="text-danger mt-1">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">Nombre is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group mb-3">
+            <label for="descripcion" class="fw-bold">Descripción:</label>
+            <textarea 
+                formControlName="descripcion"
+                id="descripcion" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['descripcion'].touched && f['descripcion'].invalid" class="text-danger mt-1">
+                <div *ngIf="f['descripcion'].errors && f['descripcion'].errors['required']">Descripción is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group mb-3">
+            <label for="limite_participantes" class="fw-bold">Límite de Participantes:</label>
+            <textarea 
+                formControlName="limite_participantes"
+                id="limite_participantes" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['limite_participantes'].touched && f['limite_participantes'].invalid" class="text-danger mt-1">
+                <div *ngIf="f['limite_participantes'].errors && f['limite_participantes'].errors['required']">Límite de Participantes is required.</div>
+            </div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="fecha" class="fw-bold">Fecha:</label>
+          <input 
+              formControlName="fecha"
+              id="fecha" 
+              type="date"
+              class="form-control">
+          <div *ngIf="f['fecha'].touched && f['fecha'].invalid" class="text-danger mt-1">
+              <div *ngIf="f['fecha'].errors && f['fecha'].errors['required']">Fecha is required.</div>
+          </div>
+      </div>
+  
+      <div class="form-group mb-3">
+          <label for="file" class="fw-bold">File:</label>
+          <input 
+              formControlName="file"
+              id="file" 
+              type="file" 
+              class="form-control"
+              (change)="onSelectFile($event)">
+          <div *ngIf="f['file'].touched && f['file'].invalid" class="text-danger mt-1">
+              <div *ngIf="f['file'].errors && f['file'].errors['required']">File is required.</div>
+          </div>
+      </div>
+  
+      <img [src]="imageSrc" *ngIf="imageSrc" class="img-preview mb-3">
+      <a href="#" routerLink="/admin/evento/index" class="btn btn-primary mb-4">Back</a>
+
+      <button class="btn btn-primary mt-3" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="loggedUser.id!==1||!isSignedIn" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div>

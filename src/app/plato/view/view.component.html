@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h1>{{ plato.nombre }}</h1>
+
+
+    <div class="event-content">
+      <img src="{{ image }}" alt="Imagen de la petición">
+
+      <div class="event-info">
+       
+
+        <div>
+            <strong>Descripción:</strong>
+            <p>{{ plato.descripcion }}</p>
+        </div>
+
+        <div>
+            <strong>Categoría:</strong>
+            <p>{{ plato.categoria }}</p>
+        </div>
+        <div>
+            <strong>Precio:</strong>
+            <p>{{ plato.precio }} $</p>
+        </div>
+        <a href="#" routerLink="/plato/index" class="btn btn-primary">Back</a>
+
+      </div>
+      
+    </div>
+
+  
+  </div>

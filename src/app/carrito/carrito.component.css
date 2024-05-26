@@ -1,0 +1,52 @@
+/* styles.css */
+
+/* Estilo para el contenedor */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para el encabezado de la tabla */
+thead {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Estilos para los botones */
+button.btn-danger {
+    color: #ffffff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+button.btn-primary {
+    color: #ffffff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+button.btn-secondary {
+    color: #ffffff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+h4 {
+    margin: 0;
+}
+
+/* Espaciado entre botones */
+.btn + .btn {
+    margin-left: 0.5rem;
+}
+h2{
+    color: black;
+}

@@ -1,0 +1,67 @@
+.navbar, .footer {
+  background-color: rgba(0, 0, 0, 0.7); /* Transparency */
+}
+.navbar-brand, .nav-link, .footer-text {
+  color: white !important;
+}
+/*footer {
+  position: absolute;
+  bottom: 0; /* Asegura que el footer se quede en la parte inferior */
+  /*width: 100%; /* Asegura que tome todo el ancho */
+/*}*/
+@media (min-width: 992px) {
+  .sign-components {
+    display: flex; /* Asumimos que siempre quieres que sea un flex container */
+    position: absolute; /* Posición absoluta respecto a su contenedor más cercano posicionado */
+    right: 0;
+  }
+}
+main {
+  flex-grow: 1;
+}
+.footer {
+  background-color: #000;
+}
+
+.footer h5 {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer p,
+.footer li {
+  color: #ccc;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer .social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: #ddd;
+}
+
+.footer .list-unstyled {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .footer .col-md-4 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+footer .text-center {
+  text-align: center !important;
+}
+

@@ -1,0 +1,35 @@
+
+<div class="container" *ngIf="loggedUser.id==1">
+    <h1>{{ plato.nombre }}</h1>
+
+
+    <div class="event-content">
+      <img src="{{ image }}" alt="Imagen de la petición">
+
+      <div class="event-info">
+       
+
+        <div>
+            <strong>Descripción:</strong>
+            <p>{{ plato.descripcion }}</p>
+        </div>
+
+        <div>
+            <strong>Categoría:</strong>
+            <p>{{ plato.categoria }}</p>
+        </div>
+        <div>
+            <strong>Precio:</strong>
+            <p>{{ plato.precio }}</p>
+        </div>
+        <a href="#" routerLink="/admin/plato/index" class="btn btn-primary">Back</a>
+
+      </div>
+      
+    </div>
+
+  
+  </div>
+  <div *ngIf="loggedUser.id!==1||!isSignedIn" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div>

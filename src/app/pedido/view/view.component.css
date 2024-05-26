@@ -1,0 +1,70 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  margin-bottom: 125px;
+}
+.container h1 {
+  margin-bottom: 20px;
+  color: #343a40;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.event-content {
+  display: flex;
+  align-items: flex-start;
+}
+.event-content img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+.event-info {
+  flex-grow: 1;
+}
+.event-info div {
+  margin-bottom: 15px;
+}
+.event-info div strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #495057;
+  font-size: 0.9rem;
+}
+.event-info div p {
+  margin: 0;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #343a40;
+}
+.container .btn {
+  margin-right: 10px;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+}
+.container .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.container .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.container strong.is-event-full {
+  display: block;
+  margin-top: 20px;
+  color: #dc3545;
+  text-align: center;
+  font-size: 0.85rem;
+}
+h1{
+  font-style: italic;
+  font-weight: bold;
+}

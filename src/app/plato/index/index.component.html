@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="mb-4 text-center text-white">Observa Toda Nuestra Carta</h1>
+  <a href="/carrito"><img src="../../../assets/images/carritp.webp" alt="Carrito" class="fixed-image"></a>
+
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let plato of platos">
+          <div class="card h-100 producto-card">
+              <div class="img-container">
+                  <img class="img-fluid" [src]="'http://localhost:8000/' + plato?.imagenes[0].file_path" alt="{{ plato.nombre }}">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <a [routerLink]="['/plato/', plato.id, 'view']" class="link-h5"><h5 class="card-title ">{{ plato.nombre }}</h5></a>
+                  <p class="card-text text-black">{{ plato.descripcion }}</p>
+                  <p class="card-text fw-bold text-black">Precio: {{ plato.precio }} $</p>
+                  <button class="btn " *ngIf="isSignedIn" (click)="agregarCarrito(plato)">Añadir al carrito</button>
+              </div>
+              <div class="card-footer text-center">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

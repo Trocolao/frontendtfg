@@ -1,0 +1,28 @@
+
+ <div class="container">
+  <h1 class="my-4 text-center">Mis Reservas</h1>
+
+  <div class="text-right mb-4">
+      <a routerLink="/reserva/create/" class="btn btn-success" *ngIf="isSignedIn">Haz Una Reserva</a>
+  </div>
+  
+  <div class="row">
+      <div class="col-md-4" *ngFor="let reserva of reservas" >
+          <div class="card mb-4 shadow-sm custom-card" *ngIf="isSignedIn">
+              <div class="card-body">
+                  <h5 class="card-title">Reserva</h5>
+                  <p class="card-text"><strong>Numero de comensales:</strong> {{ reserva.numero_comensales }}</p>
+                  <p class="card-text"><strong>Día:</strong> {{ reserva.dia }}</p>
+                  <p class="card-text"><strong>Turno:</strong> {{ reserva.turno }}</p>
+                  <p class="card-text"><strong>Hora:</strong> {{ reserva.hora }}</p>
+                  <div class="d-flex justify-content-between">
+                      <button type="button" [routerLink]="['/reserva/', reserva.id, 'view']" class="btn btn-primary btn-sm btn-sm custom-btn ml-2">View</button>
+                      <button type="button" [routerLink]="['/reserva/', reserva.id, 'edit']" class="btn btn-primary btn-sm btn-sm custom-btn ml-2">Editar</button>
+
+                      <button type="button" (click)="deletePost(reserva.id)" class="btn btn-danger btn-block btn-sm custom-btn ml-2">Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

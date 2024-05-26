@@ -1,0 +1,39 @@
+<div class="container" style="margin-top: 50px; margin-bottom: 250px;">
+  <h1>{{evento.nombre}}</h1>
+
+
+    <div class="event-content">
+      <img src="{{ image }}" alt="Imagen de la petición">
+
+      <div class="event-info">
+        
+
+        <div>
+            <strong>Descripción:</strong>
+            <p>{{ evento.descripcion }}</p>
+        </div>
+
+        <div>
+            <strong>Límite de participantes:</strong>
+            <p>{{ evento.limite_participantes }} personas</p>
+        </div>
+        <div>
+            <strong>Participantes:</strong>
+            <p>{{ evento.participantes }} personas</p>
+        </div>
+        <div>
+            <strong>Fecha:</strong>
+            <p>{{ evento.fecha }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isSignedIn" style="display: flex;">
+      <button *ngIf="!isUserInEvent&&!isEventFull" type="button" (click)="unirevento(evento.id)" class="btn btn-danger mx-2">Unirse</button>
+      <button *ngIf="isUserInEvent&&!isEventFull" type="button" (click)="desunirevento(evento.id)" class="btn btn-danger mx-2">Desunirse</button>
+      <strong *ngIf="isEventFull" class="is-event-full">EL EVENTO YA HA ALCANZADO SU CAPACIDAD MÁXIMA</strong>
+      <a href="#" routerLink="/evento/index" class="btn btn-primary">Back</a>
+
+    </div>
+    
+
+  </div>

@@ -1,0 +1,69 @@
+
+
+
+<div class="container" *ngIf="loggedUser.id==1">
+    <h1 class="mb-4 text-center">Actualiza el Plato</h1>
+  
+        
+    <form [formGroup]="form" (ngSubmit)="submit()" class="bg-light p-4 rounded shadow-sm">
+  
+        <div class="form-group mb-3">
+            <label for="nombre" class="fw-bold">Nombre:</label>
+            <input 
+                formControlName="nombre"
+                id="nombre" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="text-danger mt-1">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">Nombre is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group mb-3">
+            <label for="descripcion" class="fw-bold">Descripción:</label>
+            <textarea 
+                formControlName="descripcion"
+                id="descripcion" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['descripcion'].touched && f['descripcion'].invalid" class="text-danger mt-1">
+                <div *ngIf="f['descripcion'].errors && f['descripcion'].errors['required']">Descripción is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group mb-3">
+            <label for="categoria">Categoría del Plato:</label>
+            <select formControlName="categoria" id="categoria" class="form-control">
+              <option value="">Seleccione una opción</option>
+              <option value="Entrante">Entrante</option>
+              <option value="Primer Plato">Primer Plato</option>
+              <option value="Segundo Plato">Segundo Plato</option>
+              <option value="Bebida">Bebida</option>
+              <option value="Postre">Postre</option>
+            </select>
+            <div *ngIf="f['categoria'].touched && f['categoria'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoria'].errors && f['categoria'].errors['required']">categoria is required.
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group mb-3">
+            <label for="precio">Precio: </label>
+            <textarea formControlName="precio" id="precio" type="text" [(ngModel)]="plato.precio"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['precio'].touched && f['precio'].invalid" class="alert alert-danger">
+                <div *ngIf="f['precio'].errors && f['precio'].errors['required']">precio is required.
+                </div>
+            </div>
+      </div>
+  
+      
+      <a href="#" routerLink="/admin/plato/index" class="btn btn-primary mb-4">Back</a>
+
+      <button class="btn btn-primary mt-3" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="loggedUser.id!==1||!isSignedIn" style="margin-bottom: 500px; margin-top: 250px;">
+    <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+  </div>

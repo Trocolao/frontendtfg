@@ -1,0 +1,66 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Pasarela de Pago</h2>
+    <div class="row">
+        <!-- Lista de ítems del carrito -->
+        <div class="col-md-6">
+            <h3>Resumen del Carrito</h3>
+            <table class="table">
+                <thead class="thead-black">
+                    <tr>
+                        <th style="color: black;">Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listaItemsCarrito">
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.precio | currency}}</td>
+                        <td>{{item.cantidad}}</td>
+                        <td>{{item.cantidad * item.precio | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Total a Pagar: <span>{{ totalAmount | currency }}</span></h4>
+        </div>
+        <!-- Formulario de pago -->
+        <div class="col-md-6">
+            <h3>Detalles de Pago</h3>
+            <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="cardName">Nombre del Titular</label>
+                    <input type="text" id="cardName" class="form-control" formControlName="cardName">
+                    <div *ngIf="paymentForm.get('cardName')?.invalid && paymentForm.get('cardName')?.touched" class="text-danger">
+                        El nombre del titular es requerido.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Número de la Tarjeta</label>
+                    <input type="text" id="cardNumber" class="form-control" formControlName="cardNumber">
+                    <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="text-danger">
+                        Número de tarjeta inválido. Deben ser 16 dígitos.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardExpiry">Fecha de Expiración (MM/YY)</label>
+                    <input type="text" id="cardExpiry" class="form-control" formControlName="cardExpiry">
+                    <div *ngIf="paymentForm.get('cardExpiry')?.invalid && paymentForm.get('cardExpiry')?.touched" class="text-danger">
+                        Fecha de expiración inválida. Formato MM/YY.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardCvc">CVC</label>
+                    <input type="text" id="cardCvc" class="form-control" formControlName="cardCvc">
+                    <div *ngIf="paymentForm.get('cardCvc')?.invalid && paymentForm.get('cardCvc')?.touched" class="text-danger">
+                        CVC inválido. Deben ser 3 dígitos.
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Pagar</button>
+                <button type="submit" routerLink="/carrito" class="btn btn-primary">Back</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

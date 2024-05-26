@@ -1,0 +1,39 @@
+.auth-wrapper {
+    width: 100%;
+    max-width: 360px; 
+    padding: 20px;
+    margin: auto;
+    color: #fff; 
+    margin-top: 100px;
+    margin-bottom: 250px;
+}
+
+.form-signin {
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.form-signin .form-group .form-control {
+    height: 40px; 
+    font-size: 14px;
+}
+
+.form-signin .btn {
+    margin-top: 15px;
+    background-color: #007bff; 
+    border: none;
+}
+
+.form-signin label {
+    color: #fff; 
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+}

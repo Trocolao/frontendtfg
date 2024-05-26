@@ -1,0 +1,29 @@
+
+
+<div class="container">
+  <h1 class="mb-4 text-center text-white">Observa las opiniones del restaurante</h1>
+  <a routerLink="/resena/create/" class="btn btn-success btn-sm mb-4" *ngIf="isSignedIn">Danos tu opinión</a>
+
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let plato of resenas">
+          <div class="card h-100 producto-card">
+              <div class="card-body">
+                <h5 class="card-title text-black">Usuario: {{ plato.user.name }}</h5>
+                  <h5 class="card-title text-black">Título: {{ plato.titulo }}</h5>
+                  <p class="card-text text-black">{{ plato.descripcion }}</p>
+                  <div class="star-rating">
+                    <i class="fa fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index"
+                       [ngClass]="{'selected': (i + 1) <= plato.valoracion}"></i>
+                  </div>
+                  <p class="card-text text-black">{{ plato.fecha }}</p>
+
+              </div>
+              <div class="card-footer text-center" *ngIf="plato.user_id===loggedUser.id">
+                <a [routerLink]="['/resena/', plato.id, 'edit']" class="btn btn-primary btn-sm">Edit</a>
+                
+                <button type="button" (click)="deleteResena(plato.id)" class="btn btn-danger btn-sm">Delete</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

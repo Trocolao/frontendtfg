@@ -1,0 +1,36 @@
+<div class="container" *ngIf="loggedUser.id==1">
+  <h1 class="mb-4">Editar Reseña</h1>
+
+      
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    
+    <div class="form-group">
+      <label for="titulo">Título:</label>
+      <input formControlName="titulo" id="titulo" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea formControlName="descripcion" id="descripcion" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="valoracion">Valoración:</label>
+      <div id="star-rating" class="star-rating">
+        <i class="fa fa-star" *ngFor="let star of stars; let i = index" 
+           (click)="rate(i + 1)" 
+           [ngClass]="{'selected': (i + 1) <= form.controls['valoracion'].value}"></i>
+      </div>
+      <input formControlName="valoracion" id="valoracion" type="number" class="form-control d-none">
+    </div>
+  
+      
+    <a href="#" routerLink="/admin/resena/index" class="btn btn-primary mb-4" style="margin-top: 12px;">Back</a>
+
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="loggedUser.id!==1||!isSignedIn" style="margin-bottom: 500px; margin-top: 250px;">
+  <h1 style="text-align: center; color: black;">No tienes permisos para ver esta página</h1>
+</div>
